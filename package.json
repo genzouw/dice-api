@@ -4,6 +4,9 @@
   "description": "My ace Nuxt.js project",
   "author": "genzouw",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "test": "jest",
     "dev": "nuxt",
@@ -17,7 +20,7 @@
     "moment": "^2.24.0",
     "nuxt": "^2.0.0",
     "prismjs": "^1.21.0",
-    "serialize-javascript": "3.1.0",
+    "serialize-javascript": "7.0.5",
     "vue-analytics": "^5.17.0",
     "vue-meta": "^2.0.4",
     "vue-prismjs": "^1.2.0"
