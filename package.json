@@ -4,6 +4,9 @@
   "description": "My ace Nuxt.js project",
   "author": "genzouw",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "test": "jest",
     "dev": "nuxt",
