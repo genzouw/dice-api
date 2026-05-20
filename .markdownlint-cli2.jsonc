@@ -22,12 +22,10 @@
   },
   "globs": ["**/*.md"],
   "ignores": [
-    "node_modules/**",
     "**/node_modules/**",
     ".claude/**",
-    "dist/**",
     "**/dist/**",
-    "build/**",
     "**/build/**",
+    ".nuxt/**",
   ],
 }
