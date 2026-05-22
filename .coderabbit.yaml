@@ -1,14 +1,14 @@
 # CodeRabbit configuration
 # https://docs.coderabbit.ai/reference/configuration
 
-language: 'ja-JP'
+language: "ja-JP"
 early_access: false
 enable_free_tier: true
 
 reviews:
   # Nuxt.js で構築されたフロントエンドアプリを管理する公開リポジトリのため、XSS / 認可不足 / 秘密情報の混入を取りこぼしたくない。
   # "assertive" で検出感度を高めに保ち、ノイズが過剰になった場合は "chill" に戻すことも検討する。
-  profile: 'assertive'
+  profile: "assertive"
 
   # PR 全体に対する指針。path_instructions に "**/*" を入れるとファイル毎に
   # 繰り返し適用されてノイズが増えるため、広範な指示は instructions に集約する。
@@ -37,13 +37,13 @@ reviews:
       - main
 
   path_instructions:
-    - path: '**/*.{vue,js,ts}'
+    - path: "**/*.{vue,js,ts}"
       instructions: |
         Nuxt.js / Vue 構成のフロントエンドコードとしてレビューしてください:
         - コンポーネント設計や Props / Events 定義が適切か。
         - ユーザー入力のバリデーションや XSS 対策 (`v-html` / `innerHTML` の直接使用) に不備が無いか。
         - 認証状態に依存する画面遷移・データ取得が SSR/CSR 境界で正しく扱われているか。
-    - path: '.github/workflows/**'
+    - path: ".github/workflows/**"
       instructions: |
         GitHub Actions ワークフローとしてレビューしてください:
         - シークレットの露出 (echo / set-output 経由のリーク) が無いか。
@@ -52,24 +52,24 @@ reviews:
 
   # 生成物 / 依存物 / ロックファイルなどはレビュー対象から除外する。
   path_filters:
-    - '!**/dist/**'
-    - '!**/build/**'
-    - '!**/coverage/**'
-    - '!**/node_modules/**'
-    - '!**/.wrangler/**'
-    - '!**/.turbo/**'
-    - '!**/.next/**'
-    - '!infra/cdktf.out/**'
-    - '!infra/.gen/**'
-    - '!**/bun.lock'
-    - '!**/package-lock.json'
-    - '!**/yarn.lock'
-    - '!**/pnpm-lock.yaml'
-    - '!**/*.min.js'
-    - '!**/*.min.css'
-    - '!**/*.map'
-    - '!**/*.snap'
-    - '!**/*.tsbuildinfo'
+    - "**/dist/**"
+    - "**/build/**"
+    - "**/coverage/**"
+    - "**/node_modules/**"
+    - "**/.wrangler/**"
+    - "**/.turbo/**"
+    - "**/.next/**"
+    - "infra/cdktf.out/**"
+    - "infra/.gen/**"
+    - "**/bun.lock"
+    - "**/package-lock.json"
+    - "**/yarn.lock"
+    - "**/pnpm-lock.yaml"
+    - "**/*.min.js"
+    - "**/*.min.css"
+    - "**/*.map"
+    - "**/*.snap"
+    - "**/*.tsbuildinfo"
 
   abort_on_close: true
 
