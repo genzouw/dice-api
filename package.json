@@ -13,7 +13,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "test": "vitest run",
-    "lint": "eslint ."
+    "lint": "nuxi prepare && eslint ."
   },
   "dependencies": {
     "@nuxtjs/gtag": "^3.0.0",
