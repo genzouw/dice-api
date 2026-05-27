@@ -37,7 +37,7 @@
     "eslint-plugin-vue": "*",
     "jest": "^30.4.2",
     "node-sass": "^9.0.0",
-    "nodemon": "^1.18.9",
+    "nodemon": "^3.1.14",
     "prettier": "^1.18.2",
     "sass-loader": "^7.1.0",
     "vue-jest": "^3.0.3"
