@@ -14,7 +14,7 @@ RUN a2enmod rewrite \
   && sed -ri 's!Listen 80!Listen 8080!g' /etc/apache2/ports.conf \
   && sed -ri 's!:80>!:8080>!g' /etc/apache2/sites-available/000-default.conf \
   && mkdir -p /var/run/apache2 /var/log/apache2 /var/lock/apache2 \
-  && chown -hR www-data:www-data /var/run/apache2 /var/log/apache2 /var/lock/apache2 /var/www/html
-COPY --from=node --chown=www-data:www-data /app/dist/ /var/www/html/
+  && chown -hR www-data:www-data /var/run/apache2 /var/log/apache2 /var/lock/apache2
+COPY --from=node /app/dist/ /var/www/html/
 EXPOSE 8080
 USER www-data
