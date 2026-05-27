@@ -1,15 +1,4 @@
 import { createConfigForNuxt } from "@nuxt/eslint-config/flat";
-import prettierConfig from "eslint-config-prettier";
-import prettierPlugin from "eslint-plugin-prettier";
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
-export default createConfigForNuxt({}).append(
-  {
-    plugins: {
-      prettier: prettierPlugin,
-    },
-    rules: {
-      "prettier/prettier": "error",
-    },
-  },
-  prettierConfig,
-);
+export default createConfigForNuxt({}).append(eslintPluginPrettierRecommended);
