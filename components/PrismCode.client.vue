@@ -10,6 +10,6 @@ defineProps<{ language: string }>();
 const codeEl = ref<HTMLElement | null>(null);
 
 onMounted(() => {
-  if (codeEl.value) Prism.highlightElement(codeEl.value);
+  if (codeEl.value !== null) Prism.highlightElement(codeEl.value);
 });
 </script>
