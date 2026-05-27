@@ -38,7 +38,7 @@
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "*",
-    "babel-jest": "^24.1.0",
+    "babel-jest": "^30.4.1",
     "eslint": "*",
     "eslint-config-prettier": "*",
     "eslint-loader": "*",
