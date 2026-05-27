@@ -11,7 +11,8 @@
     "dev": "nuxt dev",
     "build": "nuxt build",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "test": "vitest run"
   },
   "dependencies": {
     "@nuxtjs/gtag": "^3.0.0",
@@ -21,11 +22,14 @@
     "prismjs": "^1.21.0"
   },
   "devDependencies": {
+    "@nuxt/test-utils": "^3.0.0",
+    "@vue/test-utils": "^2.0.0",
     "eslint": "*",
     "eslint-config-prettier": "*",
     "eslint-plugin-prettier": "*",
     "eslint-plugin-vue": "*",
     "nodemon": "^3.1.14",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "vitest": "^1.0.0"
   }
 }
