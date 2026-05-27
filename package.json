@@ -28,7 +28,8 @@
   "overrides": {
     "tar": "7.5.11",
     "@tootallnate/once": "2.0.1",
-    "serialize-javascript": "7.0.5"
+    "serialize-javascript": "7.0.5",
+    "devalue": "5.8.1"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.27",
