@@ -4,6 +4,6 @@ services:
     build:
       context: .
     ports:
-      - 10104:80
+      - 10104:8080
     restart:
       always
