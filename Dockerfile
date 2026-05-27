@@ -5,7 +5,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN npm ci \
   && npm run build
 
-FROM node:lts-alpine
+FROM node:20-slim
 LABEL maintainer "genzouw <genzouw@gmail.com>"
 WORKDIR /app
 COPY --from=build --chown=node:node /app/.output /app/.output
