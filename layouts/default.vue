@@ -65,7 +65,7 @@ useHead({
   ],
   script: [
     {
-      src: "//platform.twitter.com/widgets.js",
+      src: "https://platform.twitter.com/widgets.js",
       async: true,
       charset: "utf-8",
     },
