@@ -31,7 +31,8 @@
     "serialize-javascript": "7.0.5",
     "devalue": "5.8.1",
     "micromatch": "4.0.8",
-    "braces": "3.0.3"
+    "braces": "3.0.3",
+    "defu": "6.1.7"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.27",
