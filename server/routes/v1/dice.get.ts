@@ -1,5 +1,7 @@
+import { randomInt } from "node:crypto";
+
 export default defineEventHandler(() => {
   return {
-    dice: Math.floor(Math.random() * 6) + 1,
+    dice: randomInt(1, 7),
   };
 });
