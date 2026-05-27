@@ -26,7 +26,8 @@
     "vue-prismjs": "^1.2.0"
   },
   "overrides": {
-    "tar": "7.5.11"
+    "tar": "7.5.11",
+    "@tootallnate/once": "2.0.1"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.27",
