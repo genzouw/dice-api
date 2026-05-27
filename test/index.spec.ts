@@ -5,7 +5,7 @@ import IndexPage from '~/pages/index.vue';
 describe('pages/index.vue', () => {
   it('renders the page heading', async () => {
     const wrapper = await mountSuspended(IndexPage);
-    expect(wrapper.find('h1').text()).toContain('Dice');
+    expect(wrapper.get('h1').text()).toContain('Dice');
   });
 
   it('renders the API URL link', async () => {
