@@ -49,10 +49,8 @@
         </p>
         <PrismCode language="javascript">{"dice":5}</PrismCode>
         <p>If you use "curl" command, execute the following command.</p>
-        <PrismCode language="bash"
-          >curl \ --request GET \ --url
-          https://dice-api.genzouw.com/v1/dice</PrismCode
-        >
+        <!-- prettier-ignore -->
+        <PrismCode language="bash">curl --request GET --url https://dice-api.genzouw.com/v1/dice</PrismCode>
       </div>
     </div>
   </div>
