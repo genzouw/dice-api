@@ -115,14 +115,14 @@ npm run preview
 
 ## 開発
 
-| コマンド           | 説明                               |
-| ------------------ | ---------------------------------- |
-| `npm run dev`      | 開発サーバーを起動（HMR有効）      |
-| `npm run build`    | 本番用ビルドを生成                 |
-| `npm run preview`  | ビルド成果物をローカルでプレビュー |
-| `npm run generate` | 静的サイトとして生成               |
-| `npm run lint`     | ESLint でコードチェック            |
-| `npm run test`     | Vitest によるテスト実行            |
+| コマンド           | 説明                                       |
+| ------------------ | ------------------------------------------ |
+| `npm run dev`      | 開発サーバーを起動（HMR有効）              |
+| `npm run build`    | 本番用ビルドを生成                         |
+| `npm run preview`  | ビルド成果物をローカルでプレビュー         |
+| `npm run generate` | 静的サイトとして生成（※APIは動作しません） |
+| `npm run lint`     | ESLint でコードチェック                    |
+| `npm run test`     | Vitest によるテスト実行                    |
 
 ### 環境変数
 
