@@ -37,5 +37,8 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Add problem matcher
+        run: echo "::add-matcher::.github/markdownlint-problem-matcher.json"
+
       - name: Run markdownlint-cli2
         run: npx --yes markdownlint-cli2@0.18.1 "**/*.md"
