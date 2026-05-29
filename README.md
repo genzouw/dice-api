@@ -167,7 +167,7 @@ curl http://localhost:10104/v1/dice
 
 ## プロジェクト構成
 
-```
+```text
 dice-api/
 ├── server/
 │   └── routes/
