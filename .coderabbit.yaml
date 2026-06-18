@@ -81,6 +81,9 @@ chat:
 knowledge_base:
   opt_out: false
 
-issue_enrichment:
-  auto_enrich:
+tools:
+  web_search:
     enabled: true
+
+issue_enrichment:
+  enabled: true
