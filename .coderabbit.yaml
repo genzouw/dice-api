@@ -8,12 +8,6 @@ enable_free_tier: true
 reviews:
   planning:
     enabled: true
-    auto_planning:
-      enabled: true
-      labels:
-        - feature
-        - enhancement
-        - bug
   # Nuxt.js で構築されたフロントエンドアプリを管理する公開リポジトリのため、XSS / 認可不足 / 秘密情報の混入を取りこぼしたくない。
   # "assertive" で検出感度を高めに保ち、ノイズが過剰になった場合は "chill" に戻すことも検討する。
   profile: "assertive"
