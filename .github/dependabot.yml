@@ -5,7 +5,12 @@ updates:
     schedule:
       interval: "weekly"
     ignore:
+      # 以下2件は Nuxt 3 系を維持する方針に伴う時限的な措置。
+      # nuxt-gtag 5.0.0 は Nuxt 4 以上を要求し、Nuxt 3 ではモジュールがサイレント無効化される。
+      # Nuxt 4 移行（#105）が完了したらこのルールをまとめて削除する
       - dependency-name: "nuxt"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "nuxt-gtag"
         update-types: ["version-update:semver-major"]
 
   # GitHub Actions
