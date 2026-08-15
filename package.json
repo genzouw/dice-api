@@ -16,7 +16,7 @@
     "lint": "nuxi prepare && eslint ."
   },
   "dependencies": {
-    "nuxt-gtag": "4.1.0",
+    "nuxt-gtag": "5.0.0",
     "bootstrap": "^5.3.0",
     "bootstrap-vue-next": "^0.45.9",
     "nuxt": "^3.21.10",
