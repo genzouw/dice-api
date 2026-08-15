@@ -7,6 +7,8 @@ updates:
     ignore:
       - dependency-name: "nuxt"
         update-types: ["version-update:semver-major"]
+      - dependency-name: "nuxt-gtag"
+        update-types: ["version-update:semver-major"]
 
   # GitHub Actions
   - package-ecosystem: "github-actions"
