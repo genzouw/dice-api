@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import Prism from "prismjs";
+import Prism from 'prismjs';
 
 defineProps<{ language: string }>();
 
