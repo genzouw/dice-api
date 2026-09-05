@@ -1,0 +1,40 @@
+name: CI
+
+# Nuxt アプリの lint / test / build を検証する。
+# 他のワークフロー (actionlint 等) は ci-workflows の reusable workflow を呼ぶ
+# スタブだが、本ジョブはアプリ固有の npm スクリプトを叩くためリポジトリ内に持つ。
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: lint / test / build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@e14015d583714f6e62063499dc959a02595150a1 # v2.21.1
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # Dockerfile の FROM node:20-slim と揃える (package.json engines は >=20)
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '20'
+          cache: npm
+      # lockfile と package.json の同期崩れ・宣言漏れの依存をここで検知する
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
