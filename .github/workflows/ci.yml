@@ -1,0 +1,46 @@
+name: CI
+
+# Nuxt アプリの lint / test / build を検証する。
+# 他のワークフロー (actionlint 等) は ci-workflows の reusable workflow を呼ぶ
+# スタブだが、本ジョブはアプリ固有の npm スクリプトを叩くためリポジトリ内に持つ。
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    # base retarget (例: スタック元PRのマージによるbase自動切替) は edited として
+    # 発火するため、既定 (opened/synchronize/reopened) だけでは本ゲートが素通りする
+    types: [opened, synchronize, reopened, edited]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: lint / test / build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@e14015d583714f6e62063499dc959a02595150a1 # v2.21.1
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # lint (@nuxt/eslint 経由の eslint-flat-config-utils) が Object.groupBy (Node 21+)
+      # を使うため Node 20 では設定読み込み自体がクラッシュする。Dockerfile の
+      # FROM node:20-slim はビルド/実行時ランタイムの要件であり、lint 用ツールチェーンの
+      # 要件とは別物として切り離す。
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+      # lockfile と package.json の同期崩れ・宣言漏れの依存をここで検知する
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
