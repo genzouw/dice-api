@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   compatibilityDate: '2026-05-27',
-  modules: ['@nuxt/eslint', 'bootstrap-vue-next/nuxt', 'nuxt-gtag'],
+  modules: ['@nuxt/eslint', '@bootstrap-vue-next/nuxt', 'nuxt-gtag'],
   css: ['bootstrap/dist/css/bootstrap.min.css', 'prismjs/themes/prism.css'],
   runtimeConfig: {
     public: {

@@ -4,6 +4,14 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    # bootstrap-vue-next と @bootstrap-vue-next/nuxt は peer で 1対1 に紐づくため
+    # (nuxt 側の peer: bootstrap-vue-next @ 同一 major)、別々の PR で上がると
+    # 片方だけマージした時点で npm ci が ERESOLVE で落ちる。常に同一 PR にまとめる。
+    groups:
+      bootstrap-vue-next:
+        patterns:
+          - "bootstrap-vue-next"
+          - "@bootstrap-vue-next/*"
     ignore:
       # 以下2件は Nuxt 3 系を維持する方針に伴う時限的な措置。
       # nuxt-gtag 5.0.0 は Nuxt 4 以上を要求し、Nuxt 3 ではモジュールがサイレント無効化される。

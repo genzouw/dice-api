@@ -31,43 +31,43 @@
 
 <script setup lang="ts">
 useHead({
-  title: "Dice - Web Dice API",
+  title: 'Dice - Web Dice API',
   meta: [
-    { name: "description", content: "This is web dice api. It's free." },
-    { property: "og:title", content: "Dice - Web Dice API" },
-    { property: "og:site_name", content: "Dice - Web Dice API" },
-    { property: "og:type", content: "website" },
-    { property: "og:url", content: "https://dice-api.genzouw.com" },
+    { name: 'description', content: "This is web dice api. It's free." },
+    { property: 'og:title', content: 'Dice - Web Dice API' },
+    { property: 'og:site_name', content: 'Dice - Web Dice API' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://dice-api.genzouw.com' },
     {
-      property: "og:image",
-      content: "https://dice-api.genzouw.com/icon.png",
+      property: 'og:image',
+      content: 'https://dice-api.genzouw.com/icon.png',
     },
-    { property: "og:description", content: "Dice - Web Dice API" },
-    { name: "twitter:card", content: "summary" },
-    { name: "twitter:site", content: "https://dice-api.genzouw.com" },
-    { name: "twitter:title", content: "Dice - Web Dice API" },
-    { name: "twitter:description", content: "Dice - Web Dice API" },
-    { name: "twitter:creator", content: "@genzouw" },
+    { property: 'og:description', content: 'Dice - Web Dice API' },
+    { name: 'twitter:card', content: 'summary' },
+    { name: 'twitter:site', content: 'https://dice-api.genzouw.com' },
+    { name: 'twitter:title', content: 'Dice - Web Dice API' },
+    { name: 'twitter:description', content: 'Dice - Web Dice API' },
+    { name: 'twitter:creator', content: '@genzouw' },
     {
-      name: "twitter:image:src",
-      content: "https://dice-api.genzouw.com/icon.png",
+      name: 'twitter:image:src',
+      content: 'https://dice-api.genzouw.com/icon.png',
     },
-    { itemprop: "name", content: "Dice - Web Dice API" },
-    { itemprop: "description", content: "Dice - Web Dice API" },
+    { itemprop: 'name', content: 'Dice - Web Dice API' },
+    { itemprop: 'description', content: 'Dice - Web Dice API' },
     {
-      itemprop: "image",
-      content: "https://dice-api.genzouw.com/icon.png",
+      itemprop: 'image',
+      content: 'https://dice-api.genzouw.com/icon.png',
     },
     {
-      name: "google-site-verification",
-      content: "gFYiPUxpzQzAhrVmsACmY-N3Y7jURnIQMfT5GKlnWmU",
+      name: 'google-site-verification',
+      content: 'gFYiPUxpzQzAhrVmsACmY-N3Y7jURnIQMfT5GKlnWmU',
     },
   ],
   script: [
     {
-      src: "https://platform.twitter.com/widgets.js",
+      src: 'https://platform.twitter.com/widgets.js',
       async: true,
-      charset: "utf-8",
+      charset: 'utf-8',
     },
   ],
 });
@@ -76,12 +76,12 @@ useHead({
 <style>
 html {
   font-family:
-    "Source Sans Pro",
+    'Source Sans Pro',
     -apple-system,
     BlinkMacSystemFont,
-    "Segoe UI",
+    'Segoe UI',
     Roboto,
-    "Helvetica Neue",
+    'Helvetica Neue',
     Arial,
     sans-serif;
   font-size: 16px;
