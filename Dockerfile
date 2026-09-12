@@ -1,11 +1,11 @@
-FROM node:20-slim AS build
+FROM node:24-slim AS build
 COPY . /app
 WORKDIR /app
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN npm ci \
   && npm run build
 
-FROM node:20-slim
+FROM node:24-slim
 LABEL maintainer "genzouw <genzouw@gmail.com>"
 WORKDIR /app
 COPY --from=build --chown=node:node /app/.output /app/.output

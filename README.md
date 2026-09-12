@@ -1,11 +1,11 @@
 # dice-api
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-[![Node](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](./package.json)
-[![Nuxt](https://img.shields.io/badge/Nuxt-3-00DC82?logo=nuxt.js&logoColor=white)](https://nuxt.com/)
+[![Node](https://img.shields.io/badge/node-%3E%3D22.19-brightgreen)](./package.json)
+[![Nuxt](https://img.shields.io/badge/Nuxt-4-00DC82?logo=nuxt.js&logoColor=white)](https://nuxt.com/)
 
 サイコロの出目をランダムに返すシンプルなWeb APIです。
-Nuxt 3 と Nitro サーバールートで実装されており、`GET /v1/dice` を叩くと 1〜6 の乱数を JSON で返します。
+Nuxt 4 と Nitro サーバールートで実装されており、`GET /v1/dice` を叩くと 1〜6 の乱数を JSON で返します。
 
 本番環境では <https://dice-api.genzouw.com/v1/dice> として公開しており、誰でも無料で利用できます。
 
@@ -30,7 +30,7 @@ Nuxt 3 と Nitro サーバールートで実装されており、`GET /v1/dice` 
 - 1〜6 の整数を乱数で返すサイコロAPI（暗号論的乱数 `node:crypto` の `randomInt` を使用）
 - JSON 形式のシンプルなレスポンス（`{ "dice": <1-6> }`）
 - CORS 全許可（`Access-Control-Allow-Origin: *`）でフロントエンドから直接呼び出し可能
-- Nuxt 3 + Nitro サーバールートによる、フロントエンド（紹介ページ）と API の同梱配信
+- Nuxt 4 + Nitro サーバールートによる、フロントエンド（紹介ページ）と API の同梱配信
 - Docker / docker-compose による即時デプロイに対応
 - 認証不要・課金不要で無料利用可能
 
@@ -69,7 +69,7 @@ curl --request GET --url https://dice-api.genzouw.com/v1/dice
 
 ## 必要要件
 
-- [Node.js](https://nodejs.org/) `>=20`
+- [Node.js](https://nodejs.org/) `^22.19.0 || ^24.11.0 || >=26.0.0`（Nuxt 4.5 の要求に準拠）
 - [npm](https://www.npmjs.com/)（または同等のパッケージマネージャ）
 - 任意: [Docker](https://www.docker.com/) / [Docker Compose](https://docs.docker.com/compose/)
 
@@ -173,12 +173,14 @@ dice-api/
 │   └── routes/
 │       └── v1/
 │           └── dice.get.ts   # GET /v1/dice エンドポイント
-├── pages/
-│   └── index.vue             # ランディングページ
-├── components/               # 共有Vueコンポーネント
-├── layouts/                  # Nuxt レイアウト
-├── middleware/               # ルートミドルウェア
-├── plugins/                  # Nuxt プラグイン
+├── app/                      # Nuxt 4 の srcDir（Vue アプリ側のコード）
+│   ├── pages/
+│   │   └── index.vue         # ランディングページ
+│   ├── components/           # 共有Vueコンポーネント
+│   ├── layouts/              # Nuxt レイアウト
+│   ├── middleware/           # ルートミドルウェア
+│   ├── plugins/              # Nuxt プラグイン
+│   └── assets/               # ビルド対象のアセット
 ├── public/                   # 静的アセット
 ├── test/                     # Vitest によるテストコード
 ├── nuxt.config.ts            # Nuxt 設定

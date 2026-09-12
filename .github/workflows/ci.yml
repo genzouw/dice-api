@@ -31,13 +31,12 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      # lint (@nuxt/eslint 経由の eslint-flat-config-utils) が Object.groupBy (Node 21+)
-      # を使うため Node 20 では設定読み込み自体がクラッシュする。Dockerfile の
-      # FROM node:20-slim はビルド/実行時ランタイムの要件であり、lint 用ツールチェーンの
-      # 要件とは別物として切り離す。
+      # nuxt 4.5 の engines は ^22.19.0 || ^24.11.0 || >=26.0.0 を要求する。
+      # Dockerfile の FROM node:24-slim (ビルド/実行時ランタイム) と同じ系列に揃え、
+      # CI で通ったものがそのままコンテナでも動く状態を保つ。
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: '22'
+          node-version: '24'
           cache: npm
       # lockfile と package.json の同期崩れ・宣言漏れの依存をここで検知する
       - run: npm ci
