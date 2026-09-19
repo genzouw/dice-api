@@ -33,7 +33,7 @@
     "eslint-plugin-vue": "10.11.0",
     "happy-dom": "^20.13.2",
     "nodemon": "^3.1.14",
-    "prettier": "^3.9.6",
+    "prettier": "^3.9.7",
     "vitest": "^5.0.1"
   },
   "overrides": {
