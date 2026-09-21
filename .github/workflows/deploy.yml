@@ -102,13 +102,15 @@ jobs:
             --delete \
             --cache-control "public, max-age=31536000" \
             --exclude "*.html" \
-            --exclude "_payload.json"
+            --exclude "_payload.json" \
+            --exclude "_nuxt/builds/latest.json"
 
           aws s3 sync public/ "s3://${S3_BUCKET}/${S3_PREFIX}/" \
             --cache-control "max-age=0,no-cache,no-store,must-revalidate" \
             --exclude "*" \
             --include "*.html" \
-            --include "_payload.json"
+            --include "_payload.json" \
+            --include "_nuxt/builds/latest.json"
 
       # この distribution は dice-api 専用なので "/*" で問題ない。S3 バケットは
       # 他サブドメインと共有しているが、distribution は共有していない。
