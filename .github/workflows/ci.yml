@@ -42,4 +42,8 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm test
-      - run: npm run build
+      # deploy.yml が本番デプロイ時に叩く npm run generate (nuxt generate) を
+      # ここで検証する。nuxt generate はビルドを含むため、build 単体で走らせる
+      # よりも prerender 特有の失敗 (window 参照・外部 fetch 未解決等) を
+      # PR の段階で検知できる。
+      - run: npm run generate
