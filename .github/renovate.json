@@ -1,0 +1,96 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "semanticCommits": "enabled",
+  "semanticCommitScope": "deps",
+  "timezone": "Asia/Tokyo",
+  "schedule": [
+    "* 0-4 * * 1"
+  ],
+  "minimumReleaseAge": "7 days",
+  "prConcurrentLimit": 10,
+  "labels": [
+    "dependencies"
+  ],
+  "reviewers": [
+    "genzouw"
+  ],
+  "vulnerabilityAlerts": {
+    "description": [
+      "脆弱性修正は minimumReleaseAge と schedule の対象外にして即時 PR にする。",
+      "Dependabot の cooldown が security updates に効かなかったのと同じ挙動を保つため。"
+    ],
+    "minimumReleaseAge": null,
+    "schedule": [],
+    "addLabels": [
+      "security"
+    ]
+  },
+  "packageRules": [
+    {
+      "description": [
+        "依存更新はすべて chore プレフィックスで出す。",
+        "config:recommended に含まれる :semanticPrefixFixDepsChoreOthers は本番依存を fix にするが、",
+        "fix は release 生成ツールがリリース対象として扱うため、Dependabot 時代と同じ chore に固定する。"
+      ],
+      "matchPackageNames": [
+        "*"
+      ],
+      "semanticCommitType": "chore"
+    },
+    {
+      "description": "GitHub Actions の更新のプレフィックスとラベル (Dependabot の commit-message.prefix と同じ)",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "semanticCommitType": "ci",
+      "addLabels": [
+        "github-actions"
+      ]
+    },
+    {
+      "description": "Docker ベースイメージの更新には docker ラベルを付ける",
+      "matchManagers": [
+        "dockerfile",
+        "docker-compose"
+      ],
+      "addLabels": [
+        "docker"
+      ]
+    },
+    {
+      "description": "npm / bun の更新には npm ラベルを付ける",
+      "matchManagers": [
+        "npm",
+        "bun"
+      ],
+      "addLabels": [
+        "npm"
+      ]
+    },
+    {
+      "description": [
+        "bootstrap-vue-next と @bootstrap-vue-next/nuxt は peer で 1 対 1 に紐づく (nuxt 側の peer が同一 major を要求する)。",
+        "別々の PR で上がると片方だけマージした時点で npm ci が ERESOLVE で落ちるため、常に同一 PR にまとめる。"
+      ],
+      "matchManagers": [
+        "npm"
+      ],
+      "matchPackageNames": [
+        "bootstrap-vue-next",
+        "@bootstrap-vue-next/**"
+      ],
+      "groupName": "bootstrap-vue-next"
+    },
+    {
+      "description": "GitHub Actions の更新は 1 PR にまとめる (Dependabot の groups.github-actions: patterns [*] と同じ)",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "groupName": "github-actions"
+    }
+  ]
+}
