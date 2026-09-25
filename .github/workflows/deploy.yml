@@ -54,7 +54,13 @@ jobs:
 
       # ドキュメントページには動的な要素が無いため静的化できる。生成物は
       # .output/public に出る。
+      #
+      # nuxt.config.ts の GA 計測ID は generate 時に静的HTMLへ焼き込まれるため、
+      # ここで渡す。リポジトリ variable が未設定なら空文字になり、
+      # nuxt.config.ts 側でプレースホルダ (G-XXXXXXXXXX) にフォールバックする。
       - run: npm run generate
+        env:
+          NUXT_PUBLIC_GTAG_ID: ${{ vars.NUXT_PUBLIC_GTAG_ID }}
 
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
