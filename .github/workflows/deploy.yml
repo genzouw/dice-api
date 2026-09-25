@@ -56,11 +56,15 @@ jobs:
       # .output/public に出る。
       #
       # nuxt.config.ts の GA 計測ID は generate 時に静的HTMLへ焼き込まれるため、
-      # ここで渡す。リポジトリ variable が未設定なら空文字になり、
-      # nuxt.config.ts 側でプレースホルダ (G-XXXXXXXXXX) にフォールバックする。
+      # ここで渡す。variable が未設定でも GitHub Actions は空文字を環境変数に
+      # 設定し、Nitro の runtimeConfig 上書き (NUXT_PUBLIC_GTAG_ID -> public.gtag.id)
+      # が空文字を有効な値として採用するため、nuxt.config.ts のフォールバックは
+      # 効かない。そのためここでプレースホルダ (G-XXXXXXXXXX) にフォールバックする。
+      # build ジョブは environment を持たないため、variable は production
+      # Environment ではなくリポジトリ variable に登録する。
       - run: npm run generate
         env:
-          NUXT_PUBLIC_GTAG_ID: ${{ vars.NUXT_PUBLIC_GTAG_ID }}
+          NUXT_PUBLIC_GTAG_ID: ${{ vars.NUXT_PUBLIC_GTAG_ID || 'G-XXXXXXXXXX' }}
 
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
