@@ -11,7 +11,6 @@
     "* 0-4 * * *"
   ],
   "minimumReleaseAge": "1 day",
-  "minimumReleaseAgeBehaviour": "timestamp-optional",
   "prConcurrentLimit": 10,
   "labels": [
     "dependencies"
@@ -92,6 +91,17 @@
         "github-actions"
       ],
       "groupName": "github-actions"
+    },
+    {
+      "description": [
+        "digest 更新は release timestamp を返さないデータソース (GHCR など) が含まれ、",
+        "既定の timestamp-required では minimumReleaseAge を永久に満たせないことがある (genzouw/trim-text#236)。",
+        "npm や GitHub Actions の semver 更新は timestamp を取得できるため、対象を digest に限定する。"
+      ],
+      "matchUpdateTypes": [
+        "digest"
+      ],
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
     }
   ]
 }
