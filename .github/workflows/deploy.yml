@@ -105,7 +105,7 @@ jobs:
           name: public
           path: public/
 
-      - uses: aws-actions/configure-aws-credentials@cbe3b392738ccf3f987d68400dafcf4b0624a56c # v6.2.4
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
         with:
           # ロール ARN は秘密情報ではないため直接書く (dice-simulator と同じ)。
           # 引き受けられるかは AWS 側の信頼ポリシーが OIDC の subject で判定する。
