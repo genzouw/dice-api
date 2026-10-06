@@ -39,6 +39,7 @@
   "overrides": {
     "esbuild": ">=0.28.1",
     "vite": "^8.2.0",
-    "@simple-git/argv-parser": "^2.0.1"
+    "@simple-git/argv-parser": "^2.0.1",
+    "shell-quote": "^1.11.0"
   }
 }
