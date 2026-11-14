@@ -30,7 +30,7 @@
     "eslint": "10.14.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "5.5.7",
-    "eslint-plugin-vue": "10.12.0",
+    "eslint-plugin-vue": "10.12.1",
     "happy-dom": "^21.0.0",
     "nodemon": "^3.1.14",
     "prettier": "^3.9.7",
